@@ -20,12 +20,6 @@ services:
     ports:
       - "8111"
     env_file: .env
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=server"
-      - "traefik.frontend.rule=Host:${VIRTUAL_HOST}"
-      - "traefik.docker.network=web"
-      - "traefik.port=8111"
     logging:
       driver: json-file
       options:
