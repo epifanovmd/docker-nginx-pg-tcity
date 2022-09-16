@@ -18,7 +18,7 @@ services:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
-      - "8111"
+      - "8111:8111"
     env_file: .env
     logging:
       driver: json-file
