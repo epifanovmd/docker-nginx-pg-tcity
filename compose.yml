@@ -8,6 +8,8 @@ services:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+    networks:
+      - postgres
     env_file: .env
     restart: unless-stopped
 
@@ -19,6 +21,8 @@ services:
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     links:
+      - postgres
+    networks:
       - postgres
     env_file: .env
     restart: unless-stopped
@@ -33,11 +37,15 @@ services:
       - "80:80"
     links:
       - pgadmin
+    networks:
+      - postgres
     env_file: .env
 
 networks:
   proxy:
     external: true
+  postgres:
+    driver: bridge
 
 volumes:
   proxy:
