@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  db-teamcity:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-epifanovmd}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-epifan123}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    env_file: .env
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  teamcity:
+    image: jetbrains/teamcity-server:latest
+    networks:
+      - web
+      - default
+    volumes:
+      - "/opt/teamcity/data:/data/teamcity_server/datadir"
+      - "/opt/teamcity/logs:/opt/teamcity/logs"
+    hostname: ${VIRTUAL_HOST}
+    ports:
+      - "8111"
+    depends_on:
+      - postgres
+    env_file: .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=server"
+      - "traefik.frontend.rule=Host:${VIRTUAL_HOST}"
+      - "traefik.docker.network=web"
+      - "traefik.port=8111"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
