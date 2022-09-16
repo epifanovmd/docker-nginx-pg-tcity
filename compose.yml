@@ -4,7 +4,7 @@ services:
   web:
     image: nginx
     volumes:
-      - ./nginx-configs/:/etc/nginx/conf.d/
+      - ./nginx-configs:/etc/nginx/templates
     ports:
       - "80:80"
     env_file: .env
