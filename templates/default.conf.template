@@ -7,9 +7,10 @@ server {
 }
 
 server {
-    root /var/www/html;
-    index index.html;
-
     listen ${NGINX_PORT};
     server_name pg.${NGINX_HOST};
+
+    location / {
+        proxy_pass: localhost:5050;
+    }
 }
