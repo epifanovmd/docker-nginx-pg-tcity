@@ -29,7 +29,3 @@ services:
 networks:
   dbteamcity:
     driver: bridge
-
-volumes:
-  dbteamcity:
-  teamcity:
