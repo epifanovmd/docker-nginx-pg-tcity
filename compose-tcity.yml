@@ -27,7 +27,7 @@ services:
         max-file: "5"
 
 networks:
-  dbteamcity:
+  teamcity:
     driver: bridge
 
 
