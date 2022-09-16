@@ -11,6 +11,6 @@ server {
     server_name pg.${NGINX_HOST};
 
     location / {
-        proxy_pass pgadmin:5050;
+        proxy_pass http://pgadmin:5050;
     }
 }
