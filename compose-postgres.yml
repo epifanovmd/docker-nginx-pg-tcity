@@ -4,10 +4,6 @@ services:
   postgres:
     container_name: postgres_container
     image: postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-epifanovmd}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-epifan123}
-      PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
@@ -20,10 +16,6 @@ services:
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-epifanovmd@gmail.com}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-epifanovadmin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:

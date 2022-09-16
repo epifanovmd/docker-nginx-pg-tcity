@@ -4,12 +4,8 @@ services:
   db-teamcity:
     container_name: postgres_container
     image: postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-epifanovmd}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-epifan123}
-      PGDATA: /data/postgres
     volumes:
-      - postgres:/data/postgres
+      - db-teamcity:/data/postgres
     ports:
       - "5432:5432"
     env_file: .env
@@ -29,7 +25,7 @@ services:
     ports:
       - "8111"
     depends_on:
-      - postgres
+      - db-teamcity
     env_file: .env
     labels:
       - "traefik.enable=true"
