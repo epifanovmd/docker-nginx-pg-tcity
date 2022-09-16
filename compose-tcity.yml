@@ -17,7 +17,7 @@ services:
     container_name: teamcity_container
     image: jetbrains/teamcity-server:latest
     networks:
-      - web
+      - proxy
       - default
     volumes:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
