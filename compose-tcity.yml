@@ -31,6 +31,5 @@ networks:
   teamcity:
     driver: bridge
 
-
 volumes:
   db-teamcity:
