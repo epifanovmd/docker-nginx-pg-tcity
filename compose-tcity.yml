@@ -2,7 +2,7 @@ version: '3'
 
 services:
   dbteamcity:
-    container_name: db-teamcity_container
+    container_name: dbteamcity_container
     image: postgres
     volumes:
       - dbteamcity:/data/postgres
