@@ -9,7 +9,8 @@ services:
       - ./templates:/etc/nginx/templates
     ports:
       - "80:80"
-      - "5050:5050"
+    depends_on:
+      - pgadmin
     env_file: .env
 
 networks:
