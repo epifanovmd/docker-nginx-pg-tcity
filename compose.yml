@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  web:
+  proxy:
+    container_name: proxy-server_container
     image: nginx
     volumes:
       - ./html:/var/www/html
@@ -11,5 +12,5 @@ services:
     env_file: .env
 
 networks:
-  web:
+  proxy:
     external: true

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db-teamcity:
-    container_name: postgres_container
+    container_name: db-teamcity_container
     image: postgres
     volumes:
       - db-teamcity:/data/postgres
@@ -14,6 +14,7 @@ services:
     restart: unless-stopped
 
   teamcity:
+    container_name: teamcity_container
     image: jetbrains/teamcity-server:latest
     networks:
       - web
@@ -21,7 +22,6 @@ services:
     volumes:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
-    hostname: ${VIRTUAL_HOST}
     ports:
       - "8111"
     depends_on:
