@@ -18,3 +18,5 @@ services:
 networks:
   proxy:
     external: true
+  postgres:
+    driver: bridge
