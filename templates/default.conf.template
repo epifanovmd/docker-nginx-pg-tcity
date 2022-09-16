@@ -5,10 +5,3 @@ server {
     listen ${NGINX_PORT};
     server_name ${NGINX_HOST};
 }
-
-server {
-        listen 80;
-        server_name pg.force-dev.ru;
-
-        proxy_pass localhost:5050;
-}
