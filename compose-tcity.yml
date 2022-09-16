@@ -10,8 +10,7 @@ services:
       - "5433:5432"
     env_file: .env
     networks:
-      - proxy
-      - default
+      - db-teamcity
     restart: unless-stopped
 
   teamcity:
