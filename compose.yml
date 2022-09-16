@@ -10,3 +10,10 @@ services:
     ports:
       - "80:80"
     env_file: .env
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  proxy:
