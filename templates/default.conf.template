@@ -10,7 +10,5 @@ server {
         listen 80;
         server_name pg.force-dev.ru;
 
-        location / {
-            proxy_pass localhost:5050;
-        }
+        proxy_pass localhost:5050;
 }
