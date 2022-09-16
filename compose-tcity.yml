@@ -9,22 +9,16 @@ services:
     ports:
       - "5433:5432"
     env_file: .env
-    networks:
-      - dbteamcity
     restart: unless-stopped
 
   teamcity:
     container_name: teamcity_container
     image: jetbrains/teamcity-server:latest
-    networks:
-      - dbteamcity
     volumes:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
       - "8111"
-    depends_on:
-      - dbteamcity
     env_file: .env
     labels:
       - "traefik.enable=true"
@@ -41,3 +35,7 @@ services:
 networks:
   dbteamcity:
     driver: bridge
+
+volumes:
+  dbteamcity:
+  teamcity:
