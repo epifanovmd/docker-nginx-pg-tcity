@@ -1,31 +1,30 @@
 version: '3'
 
 services:
-  db-teamcity:
+  dbteamcity:
     container_name: db-teamcity_container
     image: postgres
     volumes:
-      - db-teamcity:/data/postgres
+      - dbteamcity:/data/postgres
     ports:
       - "5433:5432"
     env_file: .env
     networks:
-      - db-teamcity
+      - dbteamcity
     restart: unless-stopped
 
   teamcity:
     container_name: teamcity_container
     image: jetbrains/teamcity-server:latest
     networks:
-      - proxy
-      - default
+      - dbteamcity
     volumes:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
       - "8111"
     depends_on:
-      - db-teamcity
+      - dbteamcity
     env_file: .env
     labels:
       - "traefik.enable=true"
