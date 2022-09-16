@@ -11,6 +11,8 @@ services:
       - "80:80"
     depends_on:
       - pgadmin
+    networks:
+      - postgres
     env_file: .env
 
 networks:
