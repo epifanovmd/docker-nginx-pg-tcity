@@ -28,6 +28,7 @@ services:
 networks:
   postgres:
   pgadmin:
+    driver: bridge
 
 volumes:
   postgres:
