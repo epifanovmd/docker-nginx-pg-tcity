@@ -14,16 +14,12 @@ services:
   teamcity:
     container_name: teamcity_container
     image: jetbrains/teamcity-server:latest
+    user: root
     volumes:
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
       - "8111:8111"
-    command:
-     - /bin/bash
-     - -c
-     - chown -R 1000:1000 /opt/teamcity/logs
-     - chown -R 1000:1000 /opt/teamcity/data
     env_file: .env
     logging:
       driver: json-file
