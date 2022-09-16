@@ -12,7 +12,8 @@ http {
   index    index.html index.htm;
 
   server {
-    listen       80;
+    listen       ${NGINX_PORT};
+    server_name  ${NGINX_HOST};
     root         html;
   }
 }
