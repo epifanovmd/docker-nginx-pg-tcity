@@ -34,3 +34,8 @@ services:
     links:
       - pgadmin
     env_file: .env
+
+volumes:
+  postgres:
+  pgadmin:
+  proxy:
