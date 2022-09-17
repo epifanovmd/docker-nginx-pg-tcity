@@ -8,9 +8,9 @@ server {
 
 server {
     listen ${NGINX_PORT};
-    server_name pg.${NGINX_HOST};
+    server_name pg.force-dev.ru;
 
     location / {
-        proxy_pass http://pgadmin:5050;
+        proxy_pass pgadmin:5050;
     }
 }
