@@ -43,7 +43,7 @@ services:
 
 networks:
   proxy:
-    driver: host
+    driver: bridge
 
 volumes:
   proxy:
