@@ -2,10 +2,6 @@ upstream docker_pgadmin {
   server pgadmin:5050;
 }
 
-upstream docker_teamcity {
-  server teamcity:8111;
-}
-
 server {
    root /var/www/html;
    index index.html;
@@ -28,6 +24,6 @@ server {
   server_name teamcity.${NGINX_HOST};
 
   location / {
-       proxy_pass http://docker_teamcity;
+       proxy_pass http://teamcity:8111;
   }
 }
