@@ -1,16 +1,38 @@
-server {
-    root /var/www/html;
-    index index.html;
+worker_processes auto;
+pid /run/nginx.pid;
 
-    listen ${NGINX_PORT};
-    server_name ${NGINX_HOST};
-}
+http {
+   upstream docker_pgadmin {
+      server pgadmin;
+   }
 
-server {
-    listen ${NGINX_PORT};
-    server_name pg.force-dev.ru;
+   upstream docker_teamcity {
+      server teamcity;
+   }
 
-    location / {
-         proxy_pass pgadmin:5050;
-    }
+   server {
+       root /var/www/html;
+       index index.html;
+
+       listen ${NGINX_PORT};
+       server_name ${NGINX_HOST};
+   }
+
+   server {
+       listen ${NGINX_PORT};
+       server_name pg.${NGINX_HOST};
+
+       location / {
+            proxy_pass http://docker_pgadmin:5050;
+       }
+   }
+
+  server {
+      listen ${NGINX_PORT};
+      server_name teamcity.${NGINX_HOST};
+
+      location / {
+           proxy_pass http://docker_teamcity:8111;
+      }
+  }
 }
