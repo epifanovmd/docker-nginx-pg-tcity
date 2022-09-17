@@ -11,6 +11,6 @@ server {
     server_name pg.force-dev.ru;
 
     location / {
-        proxy_pass http://pgadmin:5050;
+         fastcgi_pass php:5050;
     }
 }

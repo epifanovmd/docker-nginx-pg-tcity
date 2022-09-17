@@ -1,16 +1,5 @@
 version: '3'
 
-networks:
-  proxy:
-    driver: host
-  pgadmin:
-    driver: host
-
-volumes:
-  proxy:
-  postgres:
-  pgadmin:
-
 services:
   postgres:
     container_name: postgres_container
@@ -51,3 +40,12 @@ services:
     networks:
       - proxy
     env_file: .env
+
+networks:
+  proxy:
+    driver: host
+
+volumes:
+  proxy:
+  postgres:
+  pgadmin:
