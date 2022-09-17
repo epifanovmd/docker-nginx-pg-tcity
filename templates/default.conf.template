@@ -1,7 +1,3 @@
-upstream docker_pgadmin {
-  server pgadmin:5050;
-}
-
 server {
    root /var/www/html;
    index index.html;
@@ -15,7 +11,7 @@ server {
    server_name pg.${NGINX_HOST};
 
    location / {
-        proxy_pass http://docker_pgadmin;
+        proxy_pass http://pgadmin:5050;
    }
 }
 
