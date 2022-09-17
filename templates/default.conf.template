@@ -1,35 +1,33 @@
-http {
-   upstream docker_pgadmin {
-      server pgadmin;
+upstream docker_pgadmin {
+  server pgadmin;
+}
+
+upstream docker_teamcity {
+  server teamcity;
+}
+
+server {
+   root /var/www/html;
+   index index.html;
+
+   listen ${NGINX_PORT};
+   server_name ${NGINX_HOST};
+}
+
+server {
+   listen ${NGINX_PORT};
+   server_name pg.${NGINX_HOST};
+
+   location / {
+        proxy_pass http://docker_pgadmin:5050;
    }
+}
 
-   upstream docker_teamcity {
-      server teamcity;
-   }
+server {
+  listen ${NGINX_PORT};
+  server_name teamcity.${NGINX_HOST};
 
-   server {
-       root /var/www/html;
-       index index.html;
-
-       listen ${NGINX_PORT};
-       server_name ${NGINX_HOST};
-   }
-
-   server {
-       listen ${NGINX_PORT};
-       server_name pg.${NGINX_HOST};
-
-       location / {
-            proxy_pass http://docker_pgadmin:5050;
-       }
-   }
-
-  server {
-      listen ${NGINX_PORT};
-      server_name teamcity.${NGINX_HOST};
-
-      location / {
-           proxy_pass http://docker_teamcity:8111;
-      }
+  location / {
+       proxy_pass http://docker_teamcity:8111;
   }
 }
