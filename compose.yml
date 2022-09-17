@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - proxy
     env_file: .env
     restart: unless-stopped
 
@@ -23,7 +23,7 @@ services:
     links:
       - postgres
     networks:
-      - postgres
+      - proxy
     env_file: .env
     restart: unless-stopped
 
@@ -38,14 +38,12 @@ services:
     links:
       - pgadmin
     networks:
-      - postgres
+      - proxy
     env_file: .env
 
 networks:
   proxy:
-    external: true
   postgres:
-    driver: bridge
 
 volumes:
   proxy:
