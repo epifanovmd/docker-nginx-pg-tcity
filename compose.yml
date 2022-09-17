@@ -2,6 +2,7 @@ version: '3'
 
 networks:
   proxy:
+    driver: host
 
 volumes:
   proxy:
