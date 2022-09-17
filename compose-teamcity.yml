@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  teamcity-agent:
+    image: jetbrains/teamcity-agent
+    volumes:
+      - "teamcity_agent:/data/teamcity_agent/conf"
+    env_file: .env
+
   db-teamcity:
     container_name: dbteamcity_container
     image: postgres
@@ -28,5 +34,6 @@ services:
         max-file: "5"
 
 volumes:
+  teamcity-agent:
   db-teamcity:
   teamcity:
