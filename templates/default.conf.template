@@ -1,9 +1,9 @@
 upstream docker_pgadmin {
-  server pgadmin;
+  server pgadmin:5050;
 }
 
 upstream docker_teamcity {
-  server teamcity;
+  server teamcity:8111;
 }
 
 server {
@@ -19,7 +19,7 @@ server {
    server_name pg.${NGINX_HOST};
 
    location / {
-        proxy_pass http://docker_pgadmin:5050;
+        proxy_pass http://docker_pgadmin;
    }
 }
 
@@ -28,6 +28,6 @@ server {
   server_name teamcity.${NGINX_HOST};
 
   location / {
-       proxy_pass http://docker_teamcity:8111;
+       proxy_pass http://docker_teamcity;
   }
 }
