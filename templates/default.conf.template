@@ -11,6 +11,6 @@ server {
     server_name pg.force-dev.ru;
 
     location / {
-         fastcgi_pass php:5050;
+         fastcgi_pass pgadmin:5050;
     }
 }
