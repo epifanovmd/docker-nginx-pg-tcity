@@ -17,7 +17,7 @@ services:
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
-      - "5050:80"
+      - "5050:5050"
     env_file: .env
     restart: unless-stopped
 
