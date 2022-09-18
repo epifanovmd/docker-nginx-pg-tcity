@@ -3,7 +3,7 @@ FROM jetbrains/teamcity-minimal-agent:latest
 USER root
 
 # Install basic tools
-RUN apt-get remove docker docker-engine docker.io containerd runc &&
+RUN apt-get remove docker docker-engine docker.io containerd runc &&  \
     apt-get update && \
     apt-get -y --no-install-recommends install \
 	dirmngr \
