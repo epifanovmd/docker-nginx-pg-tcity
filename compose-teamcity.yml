@@ -1,18 +1,18 @@
 version: '3'
 
 services:
-  teamcity-agent:
-    build: ./agents/node
-    env_file: .env
-    depends_on:
-      - teamcity
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "5"
+#  teamcity-agent:
+#    build: ./agents/node
+#    env_file: .env
+#    depends_on:
+#      - teamcity
+#    volumes:
+#      - "/var/run/docker.sock:/var/run/docker.sock"
+#    logging:
+#      driver: json-file
+#      options:
+#        max-size: "10m"
+#        max-file: "5"
 
   db-teamcity:
     container_name: dbteamcity_container
