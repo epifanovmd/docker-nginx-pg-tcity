@@ -6,7 +6,7 @@ services:
     image: jetbrains/teamcity-agent:2022.04.3-linux-sudo
     env_file: .env
     volumes:
-      - "teamcity-agent-config:/data/teamcity_agent/conf"
+      - teamcity-agent-config:/data/teamcity_agent/conf
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/opt/buildagent/work:/opt/buildagent/work"
       - "/opt/buildagent/temp:/opt/buildagent/temp"
