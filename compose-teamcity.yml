@@ -28,6 +28,8 @@ services:
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
       - "8111:8111"
+    depends_on:
+      - db-teamcity
     env_file: .env
     logging:
       driver: json-file
