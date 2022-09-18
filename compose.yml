@@ -9,6 +9,9 @@ services:
       - ./templates:/etc/nginx/templates
     ports:
       - "80:80"
+    depends_on:
+      - pgadmin
+      - teamcity
     env_file: .env
 
 volumes:
