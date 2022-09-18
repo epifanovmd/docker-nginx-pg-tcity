@@ -4,6 +4,7 @@ services:
   teamcity-agent:
     container_name: teamcity-agent1_container
     image: jetbrains/teamcity-agent:2022.04.3-linux-sudo
+    user: root
     env_file: .env
     volumes:
       - "/opt/teamcity-agent-config:/data/teamcity_agent/conf"
