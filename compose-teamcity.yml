@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  teamcity-agent1:
+  teamcity-agent:
     container_name: teamcity-agent1_container
     image: jetbrains/teamcity-agent:2022.04.3-linux-sudo
     env_file: .env
