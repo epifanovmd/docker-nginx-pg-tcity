@@ -3,6 +3,7 @@ version: '3'
 services:
   teamcity-agent-1:
     image: jetbrains/teamcity-agent:latest
+    user: root
     privileged: true
     volumes:
       - ./agents/agent-1/conf:/data/teamcity_agent/conf
