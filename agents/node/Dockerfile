@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-minimal-agent:latest
+FROM jetbrains/teamcity-agent:latest
 
 USER root
 
