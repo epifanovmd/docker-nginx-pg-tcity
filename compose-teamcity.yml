@@ -30,7 +30,7 @@ services:
     image: jetbrains/teamcity-server:latest
     user: root
     volumes:
-      - "./teamcity_builds:./teamcity_builds"
+      - "/opt/teamcity_builds:/opt/teamcity_builds"
       - "/opt/teamcity/data:/data/teamcity_server/datadir"
       - "/opt/teamcity/logs:/opt/teamcity/logs"
     ports:
