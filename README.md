@@ -77,7 +77,7 @@ id_rsa
 cd deployApps/lending
 docker build -t lending:latest .
 [[ $(docker ps -f name=lending_container -q -a) != '' ]] && docker rm --force $(docker ps -f name=lending_container -q -a)
-docker run -u root -d --restart=always -p 8082:80 --name lending_container lending:latest
+docker run -u root -d --restart=always --network server-net -p 8082:80 --name lending_container lending:latest
 docker image prune -a --force
 ```
 
