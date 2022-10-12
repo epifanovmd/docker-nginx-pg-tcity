@@ -48,12 +48,9 @@ services:
         max-size: "10m"
         max-file: "5"
     networks:
-      - server-net
+      default:
 
 volumes:
   teamcity-agent:
   db-teamcity:
   teamcity:
-
-networks:
-  server-net:

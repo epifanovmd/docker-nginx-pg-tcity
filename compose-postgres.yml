@@ -21,11 +21,8 @@ services:
     env_file: .env
     restart: unless-stopped
     networks:
-      - server-net
+      default:
 
 volumes:
   postgres:
   pgadmin:
-
-networks:
-  server-net:

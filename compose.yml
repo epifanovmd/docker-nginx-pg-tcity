@@ -14,10 +14,7 @@ services:
       - teamcity
     env_file: .env
     networks:
-      - server-net
+      default:
 
 volumes:
   proxy:
-
-networks:
-  server-net:
