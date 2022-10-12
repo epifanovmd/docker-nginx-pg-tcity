@@ -13,6 +13,11 @@ services:
       - pgadmin
       - teamcity
     env_file: .env
+    networks:
+      - server-net
 
 volumes:
   proxy:
+
+networks:
+  server-net:

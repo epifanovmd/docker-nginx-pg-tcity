@@ -10,6 +10,8 @@ services:
       - "5432:5432"
     env_file: .env
     restart: unless-stopped
+    networks:
+      - server-net
 
   pgadmin:
     container_name: pgadmin_container
@@ -18,7 +20,12 @@ services:
       - pgadmin:/var/lib/pgadmin
     env_file: .env
     restart: unless-stopped
+    networks:
+      - server-net
 
 volumes:
   postgres:
   pgadmin:
+
+networks:
+  server-net:
