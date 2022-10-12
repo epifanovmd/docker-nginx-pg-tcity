@@ -21,4 +21,5 @@ volumes:
 
 networks:
   server-net:
+    name: server-net
     driver: bridge
