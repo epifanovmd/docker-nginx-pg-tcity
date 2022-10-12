@@ -14,7 +14,11 @@ services:
       - teamcity
     env_file: .env
     networks:
-      - default
+      - server-net
 
 volumes:
   proxy:
+
+networks:
+  server-net:
+    driver: bridge
