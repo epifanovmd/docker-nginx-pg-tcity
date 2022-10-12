@@ -15,7 +15,7 @@ services:
       - "/opt/buildagent/plugins:/opt/buildagent/plugins"
       - "/opt/buildagent/system:/opt/buildagent/system"
     networks:
-      - server-net
+      - default
 
   db-teamcity:
     container_name: dbteamcity_container
@@ -27,7 +27,7 @@ services:
     env_file: .env
     restart: unless-stopped
     networks:
-      - server-net
+      - default
 
   teamcity:
     container_name: teamcity_container
@@ -48,7 +48,7 @@ services:
         max-size: "10m"
         max-file: "5"
     networks:
-      default:
+      - default
 
 volumes:
   teamcity-agent:

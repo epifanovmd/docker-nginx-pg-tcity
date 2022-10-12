@@ -11,7 +11,7 @@ services:
     env_file: .env
     restart: unless-stopped
     networks:
-      - server-net
+      - default
 
   pgadmin:
     container_name: pgadmin_container
@@ -21,7 +21,7 @@ services:
     env_file: .env
     restart: unless-stopped
     networks:
-      default:
+      - default
 
 volumes:
   postgres:
