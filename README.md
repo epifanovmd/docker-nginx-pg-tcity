@@ -78,7 +78,7 @@ cd deployApps/lending
 docker build -t lending:latest .
 [[ $(docker ps -f name=lending_container -q -a) != '' ]] && docker rm --force $(docker ps -f name=lending_container -q -a)
 docker run -u root -d --restart=always --network server-net -p 8082:80 --name lending_container lending:latest
-docker system prune -a
+docker system prune --force
 ```
 
 ## Example Dockerfile for run react application
