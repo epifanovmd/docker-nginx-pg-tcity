@@ -21,7 +21,7 @@ services:
     container_name: dbteamcity_container
     image: postgres
     volumes:
-      - db-teamcity:/data/postgres
+      - ./db-teamcity:/data/postgres
     ports:
       - "5433:5432"
     env_file: .env
