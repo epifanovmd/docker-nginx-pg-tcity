@@ -22,7 +22,7 @@ ssh-copy-id root@<remote_host>
 sudo nano /etc/ssh/sshd_config
 
 ```
-+- PasswordAuthentication no --> yes
++- PasswordAuthentication yes --> no
 
 ++ PubkeyAuthentication yes
 ++ ChallengeResponseAuthentication no
