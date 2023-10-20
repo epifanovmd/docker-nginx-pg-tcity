@@ -4,10 +4,11 @@ services:
   proxy:
     container_name: proxy-server_container
     image: nginx
+    user: root
     volumes:
       - ./html:/var/www/html
       - ./templates:/etc/nginx/templates
-      - /var/lib/docker/volumes/mediaData/_data:/opt/media
+      - ./nginx/var/lib/docker/volumes/mediaData/_data:/opt/media
     ports:
       - "80:80"
     depends_on:
