@@ -1,5 +1,3 @@
-## NGINX and Postgres & PG Admin and TeamCity with docker compose
-
 # Установка docker and docker-compose
 
 ```
@@ -32,6 +30,9 @@ sudo nano /etc/ssh/sshd_config
 ```
 sudo systemctl reload ssh
 
+
+
+## NGINX and Postgres & PG Admin and TeamCity with docker compose
 
 ### Installation on server
 ```sh
