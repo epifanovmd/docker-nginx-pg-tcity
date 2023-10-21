@@ -20,6 +20,8 @@ services:
     user: root
     volumes:
       - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "5051:5050"
     env_file: .env
     restart: unless-stopped
     networks:
