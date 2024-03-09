@@ -1,4 +1,6 @@
-# Установка docker and docker-compose
+# Настройка сервера
+
+- ### Установка docker and docker-compose
 
 ```
 sudo apt update
@@ -13,11 +15,11 @@ sudo apt-get install docker-compose
 ```
 
 
-# На стороне клинета 
+- ### На стороне клинета
 
 ssh-copy-id root@<remote_host>
 
-# На стороне сервера
+- ### На стороне сервера
 
 sudo nano /etc/ssh/sshd_config
 
